@@ -2,44 +2,51 @@
 
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
-# Update the title for pic16f15244-cnano-system-power-supply-control-sbc-mplab-mcc here
+# Process Computer Emulation using PIC16F15244 Microcontroller
 
-<!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
+## Introduction
+
+This code example demonstrates how Raspberry Pi© Single Board Computer (SBC) functionality is emulated using the pic16f15244 curiosity nano evaluation kit. For overview of the application implementation, refer “Supply Control Module using PIC16F15244 Microcontroller“ code example.
+
+For complete details of the application implementation, refer application note : Using PIC16F15244 Microcontrollers for System Power Supply Control.
+
 
 ## Related Documentation
 
-<!-- Any information about an application note or tech brief can be linked here. Use unbreakable links!
-     In addition a link to the device family landing page and relevant peripheral pages as well:
-     - [AN3381 - Brushless DC Fan Speed Control Using Temperature Input and Tachometer Feedback](https://microchip.com/00003381/)
-     - [PIC18F-Q10 Family Product Page](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family) -->
+- [Application note : Using PIC16F15244 Microcontrollers for System Power Supply Control]
+- [GitHub Microchip PIC Examples : Supply Control Module using PIC16F15244 Microcontroller]
+- [GitHub Microchip PIC Examples : Supply Control Module using PIC16F15245 Microcontroller]
+- [PIC16F15244 Product Family Page](https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/8-bit-mcus/pic-mcus/pic16f15244)
+- [PIC16F15244 Code Examples on GitHub](https://github.com/microchip-pic-avr-examples?q=pic16f15244&type=&language=&sort=)
+- [PIC16F15244 MCU Family Video](https://www.youtube.com/watch?v=nHLv3Th-o-s)
+- [PIC16F15244 MCU Product Page](https://www.microchip.com/en-us/product/PIC16F15244)
+
 
 ## Software Used
 
-<!-- All software used in this example must be listed here. Use unbreakable links!
-     - MPLAB® X IDE 5.30 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-     - MPLAB® XC8 2.10 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-     - MPLAB® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - Microchip PIC18F-Q Series Device Support (1.4.109) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) -->
+- [MPLAB® X IDE 5.50 or newer](http://www.microchip.com/mplab/mplab-x-ide)
+- [MPLAB® XC8 2.32 or a newer compiler](http://www.microchip.com/mplab/compilers)
+- [MPLAB® Code Configurator (MCC) v5.0.3 or newer](https://www.microchip.com/mplab/mplab-code-configurator)
+- [Master Synchronous Serial Port(MSSP) MCC Melody driver v6.1.0]
+- [Timer0 (TMR0) MCC Melody driver v4.0.8]
 
-- MPLAB® X IDE 6.0.0 or newer [(MPLAB® X IDE 6.0)](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_MPAE_Examples&utm_content=pic16f15244-cnano-system-power-supply-control-sbc-mplab-mcc-github)
-- MPLAB® XC8 2.36.0 or newer compiler [(MPLAB® XC8 2.36)](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_MPAE_Examples&utm_content=pic16f15244-cnano-system-power-supply-control-sbc-mplab-mcc-github)
 
 ## Hardware Used
 
-<!-- All hardware used in this example must be listed here. Use unbreakable links!
-     - PIC18F47Q10 Curiosity Nano [(DM182029)](https://www.microchip.com/Developmenttools/ProductDetails/DM182029)
-     - Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
-     - POT Click board™ [(MIKROE-3402)](https://www.mikroe.com/pot-click) -->
+- PIC16F15244 Curiosity Nano Evaluation Kit [EV09Z19A](https://www.microchip.com/en-us/development-tool/EV09Z19A)
 
-## Setup
+## Process Computer Module Implementation 
 
-<!-- Explain how to connect hardware and set up software. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+To implement the emulated Raspberry Pi-based SBC functionality , PIC16F15244 Curiosity Nano Evaluation Kit is used which will be referred as “process computer”.
 
-## Operation
+The process computer-side firmware for the system power supply control demo is developed to emulate the power-down feature of the process computer. The process computer will send out a power-down command to the supply control module when a switch press event is detected. 
 
-<!-- Explain how to operate the example. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+This power-down command triggers the shutdown of the regulator by the supply control module’s microcontroller. The command also contains the time duration the system will be turned OFF. The command consists of an ASCII string for cross platform support: S (number of seconds), where the first byte is the character ‘S’ and the following six characters are the shutdown duration in seconds (for example, ‘S007200’ represents 7200 seconds, or two hours, of system power-down).
 
-## Summary
+In case the process computer needs to be turned ON before the power-down period is over, the supply control module can also accept user input. To demonstrate this feature, an on-board switch is used on the Curiosity Nano board serving as the supply controller is used. The supply controller module will immediately turn ON the regulator in the event of a switch press.
 
-<!-- Summarize what the example has shown -->
+## Demo Operation
+
+To know about the demo operation, refer GitHub code example “Supply Control Module using PIC16F15244 Microcontroller”.
+
+ 
