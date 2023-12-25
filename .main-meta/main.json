@@ -4,27 +4,27 @@
     "content": {
         "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.pic16f15244-cnano-system-power-supply-control-sbc-mplab-mcc",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "displayName": "Process Computer Emulation using PIC16F15244 Microcontroller",
-        "projectName": "pic16f15244-cnano-system-power-supply-control-sbc-mplab-mcc",
+        "projectName": "pic16f15244-process-computer-firmware-mplab-mcc",
         "shortDescription": "This example demonstrates emulation of Raspberry pi Single Board Computer, with features like communication with a I2C client and system shutdown, using PIC MCU. Compatible PIC16F152xx family of MCUs are PIC16F15214, PIC16F15223, PIC16F15254, PIC16F15276.",
         "ide": {
             "name": "MPLAB X",
-            "semverRange": ">=6.0.0"
+            "semverRange": ">=6.15.0"
         },
         "compiler": [
             {
                 "name": "XC8",
-                "semverRange": "^2.36.0"
+                "semverRange": "^2.41.0"
             }
         ],
         "dfp": {
             "name": "PIC16F1xxxx_DFP",
-            "semverRange": "^1.9.163"
+            "semverRange": "^1.23.382"
         },
         "configurator": {
             "name": "MCC",
-            "semverRange": ">=5.1.1"
+            "semverRange": ">=5.4.1"
         },
         "device": {
             "metaDataVersion": "1.0.0",
