@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>pic16f15244-process-computer-emulation-mplab-mcc</name>
+            <name>pic16f15244-cnano-system-power-supply-control-sbc-mplab-mcc</name>
             <creation-uuid>8fa35076-0baa-4e08-89ea-a7c6e5dda5a2</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
