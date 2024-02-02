@@ -2,13 +2,13 @@
 
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
-# Process Computer Emulation using PIC16F15244 Microcontroller
+# Process Computer Emulation Using PIC16F15244 Microcontroller
 
 ## Introduction
 
-This code example demonstrates how Raspberry Pi© Single Board Computer (SBC) functionality is emulated using the pic16f15244 curiosity nano evaluation kit. For overview of the application implementation, refer “Supply Control Module using PIC16F15244 Microcontroller“ code example.
+This code example demonstrates how Raspberry Pi© Single Board Computer (SBC) functionality is emulated using the PIC16F15244 Curiosity Nano Evaluation Kit. For an overview of the implementation of this application, refer to the “Supply Control Module using PIC16F15244 Microcontroller“ code example.
 
-For complete details of the application implementation, refer application note : [Using PIC16F15244 Microcontrollers for System Power Supply Control]( https://www.microchip.com/DS00004121).
+For complete details of the application implementation, refer to the application note : [Using PIC16F15244 Microcontrollers for System Power Supply Control]( https://www.microchip.com/DS00004121).
 
 
 ## Related Documentation
@@ -24,12 +24,12 @@ For complete details of the application implementation, refer application note :
 
 ## Software Used
 
-- MPLAB® X IDE [6.15.0 or newer](http://www.microchip.com/mplab/mplab-x-ide)
-- MPLAB® XC8 [2.46.0 or newer](http://www.microchip.com/mplab/compilers)
-- MPLAB® Code Configurator (MCC) [5.6.1 or newer](https://www.microchip.com/mplab/mplab-code-configurator)
-- Microchip PIC16F1xxxx_DFP Device Support [1.24.387 or newer](https://packs.download.microchip.com)
+- [MPLAB® X IDE 6.20.0 or newer](http://www.microchip.com/mplab/mplab-x-ide)
+- [MPLAB® XC8 2.46.0 or newer](http://www.microchip.com/mplab/compilers)
+- [MPLAB® Code Configurator (MCC) 5.6.1 or newer](https://www.microchip.com/mplab/mplab-code-configurator)
+- [Microchip PIC16F1xxxx_DFP Device Support 1.24.387 or newer](https://packs.download.microchip.com)
 - MCC Melody Core 2.6.4
-- I2C_Client MCC Melody driver 2.0.3
+- I<sup>2</sup>C_Client MCC Melody driver 2.0.3
 - UART MCC Melody driver 1.10.0
 
 
@@ -39,9 +39,9 @@ For complete details of the application implementation, refer application note :
 
 ## Process Computer Module Implementation 
 
-To implement the emulated Raspberry Pi-based SBC functionality , PIC16F15244 Curiosity Nano Evaluation Kit is used which will be referred as “process computer”.
+To implement the emulated Raspberry Pi-based SBC functionality , PIC16F15244 Curiosity Nano Evaluation Kit is used, which will be referred as “process computer”.
 
-The process computer-side firmware for the system power supply control demo is developed to emulate the power-down feature of the process computer. The process computer will send out a power-down command to the supply control module when a switch press event is detected. 
+For the system power supply control demo the process computer is developed to emulate the power-down feature of the process computer. It will send out a power-down command to the supply control module when a switch press event is detected. 
 
 This power-down command triggers the shutdown of the regulator by the supply control module’s microcontroller. The command also contains the time duration the system will be turned OFF. The command consists of an ASCII string for cross platform support: S (number of seconds), where the first byte is the character ‘S’ and the following six characters are the shutdown duration in seconds (for example, ‘S007200’ represents 7200 seconds, or two hours, of system power-down).
 
